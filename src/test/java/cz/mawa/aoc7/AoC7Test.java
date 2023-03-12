@@ -1,11 +1,40 @@
-package cz.mawa;
+package cz.mawa.aoc7;
 
 import org.junit.jupiter.api.Test;
 
-class AoC7TreeNodeTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class AoC7Test {
 
     @Test
     void testAoC7() {
+
+        String testData = """
+                $ cd /
+                $ ls
+                dir a
+                14848514 b.txt
+                8504156 c.dat
+                dir d
+                $ cd a
+                $ ls
+                dir e
+                29116 f
+                2557 g
+                62596 h.lst
+                $ cd e
+                $ ls
+                584 i
+                $ cd ..
+                $ cd ..
+                $ cd d
+                $ ls
+                4060174 j
+                8033020 d.log
+                5626152 d.ext
+                7214296 k
+                """;
+
         String input = """
                 $ cd /
                 $ ls
@@ -942,12 +971,11 @@ class AoC7TreeNodeTest {
                 $ ls
                 260269 wzpjsjnq.nvt
                 """;
-
-
-
+        DataParser parser = new DataParser();
+        parser.parse(testData);
+        assertEquals(95437L, parser.result(100000L));
 
     }
-
 
 
 }

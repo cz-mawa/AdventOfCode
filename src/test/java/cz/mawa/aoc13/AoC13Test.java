@@ -1,13 +1,41 @@
-package cz.mawa;
+package cz.mawa.aoc13;
 
+import cz.mawa.aoc7.DataParser;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AoC13Test {
 
     @Test
     void testAoC13() {
+
+        String testData = """
+                [1,1,3,1,1]
+                [1,1,5,1,1]
+                                
+                [[1],[2,3,4]]
+                [[1],4]
+                                
+                [9]
+                [[8,7,6]]
+                                
+                [[4,4],4,4]
+                [[4,4],4,4,4]
+                                
+                [7,7,7,7]
+                [7,7,7]
+                                
+                []
+                [3]
+                                
+                [[[]]]
+                [[]]
+                                
+                [1,[2,[3,[4,[5,6,7]]]],8,9]
+                [1,[2,[3,[4,[5,6,0]]]],8,9]
+                """;
+
         String input = """
                 [[9,[],[[10,10,1,4,10],[2,2,7,6,1],2,9]]]
                 [[],[[[2,6,9],[],6,[8,8,4]],8,9,7],[9,[[9,10,5,10,6],[4,9,3],[9]],7],[[],[1,[5],[]],9],[[7,1,4,6,[2,1,9,7,8]],[[6,9],5],7]]
@@ -459,6 +487,10 @@ class AoC13Test {
                 [[10,6,9,4,[]]]
                 [[[],[8,[0,9]],7],[5,1],[5,[],[10,9],0,8]]
                 """;
+
+        DataParser parser = new DataParser();
+        parser.parse(testData);
+        /*assertEquals(95437L, parser.result(100000L));*/
 
     }
 
