@@ -2,8 +2,6 @@ package cz.mawa.aoc13;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AoC13Test {
@@ -489,16 +487,19 @@ class AoC13Test {
                 [[[],[8,[0,9]],7],[5,1],[5,[],[10,9],0,8]]
                 """;
 
-        DataParser parser = new DataParser();
-        parser.parse(testData);
-        /*assertEquals(13, parser.result());*/
+        DataParser parser1 = new DataParser();
+        parser1.parseData(testData);
+        //assertEquals(13, parser1.result());
+        DataParser parser2 = new DataParser();
+        parser2.parseData(input);
+        //assertEquals(13, parser2.result());
 
     }
 
     @Test
     void testCompare() {
-        // [[1],[2,3,4]]
-        // [[1],4]
+        /* [[1],[2,3,4]]
+           [[1],4] */
         TreeNode left1 = new IntegerArray(
                 new IntegerArray(
                         new IntegerValue(1)),
@@ -511,6 +512,8 @@ class AoC13Test {
                         new IntegerValue(1)),
                 new IntegerValue(4)
         );
+        /* [9]
+           [[8,7,6]]*/
         TreeNode left2 = new IntegerArray(
                 new IntegerValue(9)
         );

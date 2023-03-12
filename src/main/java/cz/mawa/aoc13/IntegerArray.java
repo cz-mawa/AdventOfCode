@@ -24,9 +24,7 @@ public class IntegerArray extends TreeNode {
     public int compareTo(TreeNode o) {
         if (o instanceof IntegerArray integerArray) {
             for (int i = 0; i < this.children.size(); i++) {
-                if (this.children.get(i).compareTo(integerArray.children.get(i)) == 0) {
-                    continue;
-                }
+                if (this.children.get(i).compareTo(integerArray.children.get(i)) == 0) {continue;}
                 else return this.children.get(i).compareTo(integerArray.children.get(i));
             }
             if (this.children.size() > integerArray.children.size()) {
@@ -62,24 +60,4 @@ public class IntegerArray extends TreeNode {
         return (IntegerArray) parent;
     }
 
-   /* public Long getSize() {
-
-        if (size == null) {
-            size = children.stream()
-                    .map(TreeNode::getSize)
-                    .reduce(0L, Long::sum);
-        }
-        return size;
-
-    }*/
-
-    /*public static Stream<IntegerArray> flat(IntegerArray array) {
-        return Stream.concat(Stream.of(array),
-                array
-                        .getChildren()
-                        .stream()
-                        .filter(Array.class::isInstance)
-                        .map (Array.class::cast)
-                        .flatMap(IntegerArray::flat));
-    }*/
 }

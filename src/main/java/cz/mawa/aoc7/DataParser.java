@@ -45,7 +45,7 @@ public class DataParser {
             if (line.equals("")) continue;
             line = line.strip();
             if (line.startsWith("cd")) {
-            String[] command = line.split(" ");
+                String[] command = line.split(" ");
                 if (command[1].equals("..")) {
                     cd_out();
                 } else if (command[1].startsWith("/")) {
