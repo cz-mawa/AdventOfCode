@@ -1,24 +1,44 @@
 package cz.mawa.aoc13;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class IntegerArray extends TreeNode {
 
     public List<TreeNode> children = new ArrayList<>();
 
-    public List<Integer> values = new ArrayList<>();
-
-    public IntegerArray(List<Integer> values) {
-        this.values = values;
-    }
-
     public IntegerArray() {
     }
 
-    public IntegerArray(List<Integer> values, List<TreeNode> children) {
-        this.values = values;
-        this.children = children;
+    public IntegerArray(TreeNode... children) {
+        this.children = Arrays.asList(children);
+    }
+
+    @Override
+    public String toString() {
+        return children.toString();
+    }
+
+    @Override
+    public int compareTo(TreeNode o) {
+        if (o instanceof IntegerArray integerArray) {
+            for (int i = 0; i < this.children.size(); i++) {
+                if (this.children.get(i).compareTo(integerArray.children.get(i)) == 0) {
+                    continue;
+                }
+                else return this.children.get(i).compareTo(integerArray.children.get(i));
+            }
+            if (this.children.size() > integerArray.children.size()) {
+                return 1;
+            }
+            return 0;
+        } else if (o instanceof IntegerValue integerValue) {
+            return this.compareTo(new IntegerArray(integerValue));
+        } else {
+            throw new IllegalArgumentException("Cannot compare " + this + " with " + o);
+        }
+
     }
 
     public void addChild(TreeNode child) {

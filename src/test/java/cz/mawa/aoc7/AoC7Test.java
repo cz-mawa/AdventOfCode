@@ -971,9 +971,12 @@ class AoC7Test {
                 $ ls
                 260269 wzpjsjnq.nvt
                 """;
-        DataParser parser = new DataParser();
-        parser.parse(testData);
-        assertEquals(95437L, parser.result(100000L));
+        DataParser parser1 = new DataParser();
+        parser1.parse(testData);
+        assertEquals(95437L, parser1.result(100000L));
+        DataParser parser2 = new DataParser();
+        parser2.parse(input);
+        assertEquals(1555642L, parser2.result(100000L));
 
     }
 

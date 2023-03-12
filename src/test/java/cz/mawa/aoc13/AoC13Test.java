@@ -2,6 +2,8 @@ package cz.mawa.aoc13;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AoC13Test {
@@ -493,4 +495,31 @@ class AoC13Test {
 
     }
 
+    @Test
+    void testCompare() {
+        // [[1],[2,3,4]]
+        // [[1],4]
+        TreeNode left1 = new IntegerArray(
+                new IntegerArray(
+                        new IntegerValue(1)),
+                new IntegerArray(
+                        new IntegerValue(2), new IntegerValue(3), new IntegerValue(4)
+                )
+        );
+        TreeNode right1 = new IntegerArray(
+                new IntegerArray(
+                        new IntegerValue(1)),
+                new IntegerValue(4)
+        );
+        TreeNode left2 = new IntegerArray(
+                new IntegerValue(9)
+        );
+        TreeNode right2 = new IntegerArray(
+                new IntegerArray(
+                        new IntegerValue(8), new IntegerValue(7), new IntegerValue(6)
+                )
+        );
+        assertEquals(1, left1.compareTo(right1));
+        assertEquals(-1, left2.compareTo(right2));
+    }
 }
