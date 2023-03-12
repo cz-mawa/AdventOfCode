@@ -2,12 +2,13 @@ package cz.mawa.aoc7;
 
 public class DataParser {
 
-    private Directory currentDirectory;
     private final Directory rootDirectory = new Directory("root");
 
-    private void cd_in(Directory directory) {
+    private Directory currentDirectory = rootDirectory;
 
-        currentDirectory = directory;
+    private void cd_in(String name) {
+
+        currentDirectory = currentDirectory.getChild(name);
 
     }
 
@@ -28,6 +29,7 @@ public class DataParser {
         String[] lines = data.split("\\R");
         for (String line : lines) {
             String[] descriptor = line.split(" ");
+            if (descriptor.equals("")) continue;
             if (descriptor[0].equals("dir")) {
                 currentDirectory.addChild(new Directory(descriptor[1]));
             } else {
@@ -38,19 +40,21 @@ public class DataParser {
 
     public void parse(String data) {
 
-        String[] lines = data.split("\\$");
+        String[] lines = data.split("\\$ ");
         for (String line : lines) {
+            if (line.equals("")) continue;
+            line = line.strip();
+            if (line.startsWith("cd")) {
             String[] command = line.split(" ");
-            if (command[0].equals("cd")) {
                 if (command[1].equals("..")) {
                     cd_out();
-                } else if (command[1].equals("/")) {
+                } else if (command[1].startsWith("/")) {
                     cd_root();
                 } else {
-                    cd_in(currentDirectory);
+                    cd_in(command[1]);
                 }
             } else {
-                ls(line.substring(5));
+                ls(line.substring(3));
             }
 
         }

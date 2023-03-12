@@ -11,7 +11,7 @@ public class DataParser {
     public List<Integer> list2;
 
     private IntegerArray currentArray;
-    private final IntegerArray root = new IntegerArray("root");
+    private final IntegerArray root = new IntegerArray();
 
     private void cd_root() {
 
@@ -24,14 +24,13 @@ public class DataParser {
         for (String pair : pairs) {
             String[] packet = pair.split("\\n");
             for (String line : packet) {
+                if (line.startsWith("[")) {
+                    /*create new IntegerArray*/
+                } else if (Character.isDigit(line.charAt(0))) {
+                    /*create new IntegerValue*/
+                }
+            }
 
-            }
-            if (packet[0].startsWith("[")) {
-                /*create new IntegerArray*/
-            } else if (packet[0].charAt().isDigit()){
-                /*create new IntegerValue*/
-            }
         }
-
     }
 }

@@ -2,6 +2,10 @@ package cz.mawa.aoc7;
 
 public abstract class TreeNode {
 
+    public String getName() {
+        return name;
+    }
+
     protected String name;
     protected TreeNode parent;
 

@@ -8,7 +8,7 @@ public class IntegerValue extends TreeNode {
         this.value = value;
     }
 
-    public Long getValue() {
+    public Integer getValue() {
         return value;
     }
 

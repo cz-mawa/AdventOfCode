@@ -1,6 +1,5 @@
 package cz.mawa.aoc13;
 
-import cz.mawa.aoc7.DataParser;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -490,7 +489,7 @@ class AoC13Test {
 
         DataParser parser = new DataParser();
         parser.parse(testData);
-        /*assertEquals(95437L, parser.result(100000L));*/
+        /*assertEquals(13, parser.result());*/
 
     }
 

@@ -2,6 +2,7 @@ package cz.mawa.aoc7;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class Directory extends TreeNode {
@@ -35,6 +36,16 @@ public class Directory extends TreeNode {
         return children;
     }
 
+    public Directory getChild(String name) {
+
+        for (TreeNode child : children) {
+            if (child.getName().equals(name) && child instanceof Directory) {
+                return (Directory) child;
+            }
+        }
+        throw new IllegalArgumentException("No child with name " + name);
+    }
+
     public Directory getParentDirectory() {
         return (Directory) parent;
     }
@@ -56,7 +67,7 @@ public class Directory extends TreeNode {
                         .getChildren()
                         .stream()
                         .filter(Directory.class::isInstance)
-                        .map (Directory.class::cast)
+                        .map(Directory.class::cast)
                         .flatMap(Directory::flat));
     }
 }

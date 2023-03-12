@@ -1,9 +1,7 @@
 package cz.mawa.aoc13;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class IntegerArray extends TreeNode {
 
@@ -13,6 +11,9 @@ public class IntegerArray extends TreeNode {
 
     public IntegerArray(List<Integer> values) {
         this.values = values;
+    }
+
+    public IntegerArray() {
     }
 
     public IntegerArray(List<Integer> values, List<TreeNode> children) {
