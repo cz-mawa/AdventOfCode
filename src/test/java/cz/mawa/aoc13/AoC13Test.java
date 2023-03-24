@@ -488,12 +488,9 @@ class AoC13Test {
                 """;
 
         DataParser parser1 = new DataParser();
-        parser1.parseData(testData);
-        //assertEquals(13, parser1.result());
+        assertEquals(13, parser1.process(testData));
         DataParser parser2 = new DataParser();
-        parser2.parseData(input);
-        //assertEquals(13, parser2.result());
-
+        assertEquals(13, parser2.process(input));
     }
 
     @Test
